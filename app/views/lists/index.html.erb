@@ -1,0 +1,39 @@
+<h1>Listing </h1>
+
+<div class="new-list" >
+<%= render 'form' %>
+</div>
+
+<%= link_to 'Back', lists_path %>
+
+<table>
+  <tr>
+    <th>Priority</th>
+    <th>Content</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @lists.each do |list| %>
+  <tr>
+    <td><%= list.priority %></td>
+    <td><%= list.content %></td>
+    <td><%= link_to 'Show', list %></td>
+    <td><%= link_to 'Edit', edit_list_path(list) %></td>
+    <td><%= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New List', new_list_path %>
+
+<script type="text/javascript">
+function showValue(newValue)
+{
+	document.getElementById("range").innerHTML=newValue;
+}
+showValue(document.getElementById("priority1").value)
+</script>

@@ -1,0 +1,27 @@
+<%= form_for(@list) do |f| %>
+  <% if @list.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@list.errors.count, "error") %> prohibited this list from being saved:</h2>
+
+      <ul>
+      <% @list.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :content %><br />
+    <%= f.text_area :content, :rows=>2 %>
+  </div>
+  <div class="field">
+    <%= f.label :priority %><br />
+<!-- <input type="range" name="points" min="1" max="10"> -->
+    <%= f.range_field :priority, :value=>1, :min=>0, :max=>10, :class=>"slide", :id=>"priority1", :onchange=>"showValue(this.value)" %>
+    <span id="range">0</span>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

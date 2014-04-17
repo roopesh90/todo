@@ -1,0 +1,14 @@
+<h1>New list</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Back', lists_path %>
+
+<script type="text/javascript">
+function showValue(newValue)
+{
+	document.getElementById("range").innerHTML=newValue;
+}
+showValue(document.getElementById("priority1").value)
+</script>
+
