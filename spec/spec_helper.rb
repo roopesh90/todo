@@ -36,4 +36,12 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+  
+  #for mongoid
+  #link: https://gist.github.com/mrdanadams/2230855#file-controller_spec-rb
+  config.before(:each) do
+    db = Mongoid::Config::master
+    # ignore stuff like system.indexes
+    db.collection_names.reject {|c| c =~ /^system/}.each {|c| db.drop_collection c}
+  end
 end
