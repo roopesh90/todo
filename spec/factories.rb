@@ -1,6 +1,8 @@
+require 'faker'
+
 FactoryGirl.define do
-   factory :list do
-      content 'TestList'
-      priority { 1 + rand(10) }
+   factory :list do |l|
+      l.content { Faker::Lorem.sentence }
+      l.priority { Faker::Number.digit }
    end
 end
