@@ -19,12 +19,12 @@ RSpec.configure do |config|
   # config.mock_with :rr
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  config.fixture_path = "#{::Rails.root}/spec/fixtures"
+  #~ config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
-  config.use_transactional_fixtures = true
+  #~ config.use_transactional_fixtures = true
 
   # If true, the base class of anonymous controllers will be inferred
   # automatically. This will be the default behavior in future versions of
@@ -39,9 +39,9 @@ RSpec.configure do |config|
   
   #for mongoid
   #link: https://gist.github.com/mrdanadams/2230855#file-controller_spec-rb
-  config.before(:each) do
-    db = Mongoid::Config::master
-    # ignore stuff like system.indexes
-    db.collection_names.reject {|c| c =~ /^system/}.each {|c| db.drop_collection c}
-  end
+  #~ config.before(:each) do
+    #~ db = Mongoid::Config::master
+    #~ # ignore stuff like system.indexes
+    #~ db.collection_names.reject {|c| c =~ /^system/}.each {|c| db.drop_collection c}
+  #~ end
 end
