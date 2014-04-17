@@ -1,6 +1,6 @@
 FactoryGirl.define do
-   factory :event do
-      name 'TestEvent'
-      start_time { Time.now }
+   factory :list do
+      content 'TestList'
+      priority { 1 + rand(10) }
    end
 end
